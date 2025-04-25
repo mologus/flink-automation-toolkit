@@ -1,0 +1,114 @@
+{
+  "jobs": [
+    {
+      "jid": "ce38fe58413a61c4b2250594ff816bb9",
+      "name": "mega_20250409_task",
+      "state": "RUNNING",
+      "start-time": 1744108516857,
+      "end-time": -1,
+      "duration": 83579249,
+      "last-modification": 1744108527940,
+      "tasks": {
+        "total": 2,
+        "created": 0,
+        "scheduled": 0,
+        "deploying": 0,
+        "running": 2,
+        "finished": 0,
+        "canceling": 0,
+        "canceled": 0,
+        "failed": 0,
+        "reconciling": 0,
+        "initializing": 0
+      }
+    },
+    {
+      "jid": "34599ed07eb749a6388564a50f55f242",
+      "name": "last_list_tag",
+      "state": "RUNNING",
+      "start-time": 1742885211178,
+      "end-time": -1,
+      "duration": 1306884924,
+      "last-modification": 1742885216045,
+      "tasks": {
+        "total": 4,
+        "created": 0,
+        "scheduled": 0,
+        "deploying": 0,
+        "running": 4,
+        "finished": 0,
+        "canceling": 0,
+        "canceled": 0,
+        "failed": 0,
+        "reconciling": 0,
+        "initializing": 0
+      }
+    },
+    {
+      "jid": "a5c89f22db4594e71873c9c9adf6d871",
+      "name": "log_processor_job",
+      "state": "RUNNING",
+      "start-time": 1744001234567,
+      "end-time": -1,
+      "duration": 12345678,
+      "last-modification": 1744001240000,
+      "tasks": {
+        "total": 3,
+        "created": 0,
+        "scheduled": 0,
+        "deploying": 0,
+        "running": 3,
+        "finished": 0,
+        "canceling": 0,
+        "canceled": 0,
+        "failed": 0,
+        "reconciling": 0,
+        "initializing": 0
+      }
+    },
+    {
+      "jid": "b7d91e34c5f88b69a12d45e7f8a3c042",
+      "name": "metric_collector",
+      "state": "RUNNING",
+      "start-time": 1743999123456,
+      "end-time": -1,
+      "duration": 15678910,
+      "last-modification": 1743999130000,
+      "tasks": {
+        "total": 2,
+        "created": 0,
+        "scheduled": 0,
+        "deploying": 0,
+        "running": 2,
+        "finished": 0,
+        "canceling": 0,
+        "canceled": 0,
+        "failed": 0,
+        "reconciling": 0,
+        "initializing": 0
+      }
+    },
+    {
+      "jid": "c8e02a45d6f99c70b23e56f8g9b4d153",
+      "name": "data_aggregator",
+      "state": "RUNNING",
+      "start-time": 1743950123456,
+      "end-time": -1,
+      "duration": 25678910,
+      "last-modification": 1743950130000,
+      "tasks": {
+        "total": 5,
+        "created": 0,
+        "scheduled": 0,
+        "deploying": 0,
+        "running": 5,
+        "finished": 0,
+        "canceling": 0,
+        "canceled": 0,
+        "failed": 0,
+        "reconciling": 0,
+        "initializing": 0
+      }
+    }
+  ]
+}

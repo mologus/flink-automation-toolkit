@@ -1,0 +1,15 @@
+{
+  "jid": "ce38fe58413a61c4b2250594ff816bb9",
+  "name": "mega_20250409_task",
+  "execution-config": {
+    "execution-mode": "PIPELINED",
+    "restart-strategy": "Restart with fixed delay (60000 ms). #1440 restart attempts.",
+    "job-parallelism": 1,
+    "object-reuse-mode": false,
+    "user-config": {
+      "marketing.ddl": "[\"CREATE TABLE kafka_source (`id` STRING,`data` ROW<`amount` DECIMAL,`identification` STRING,`currency` STRING,`country` STRING ,`attribute` MAP<STRING,STRING>, `item` MAP<STRING,STRING>>,`specversion` STRING,`time` BIGINT,`source` STRING,`type`STRING, `ts` AS TO_TIMESTAMP(FROM_UNIXTIME(`time` / 1000)), WATERMARK FOR `ts` AS ts - INTERVAL '5' SECOND) WITH( 'connector' = 'kafka', 'topic' = 'business_operation_events', 'properties.group.id' = 'mega_20250409_group', 'property-version' = 'universal', 'properties.bootstrap.servers' = 'kafka-broker1:9092,kafka-broker2:9092', 'scan.startup.mode' = 'latest-offset', 'format' = 'json')\",\"CREATE TABLE business_operation_events_model_sink ( `identification` STRING, `id` STRING, `amount` DECIMAL, `amountType` INT, `tag` STRING, `time` BIGINT, `uniqueCode` STRING, `type` STRING, `action` INT, `periodKey` STRING, `currency` STRING,PRIMARY KEY(identification) NOT ENFORCED ) WITH( 'connector' = 'upsert-kafka', 'topic' = 'business_operation_events_model_sink', 'property-version' = 'universal', 'properties.bootstrap.servers' = 'kafka-broker1:9092,kafka-broker2:9092', 'key.format' = 'json', 'value.format' = 'json')\"]",
+      "marketing.sql": "[\"INSERT INTO business_operation_events_model_sink SELECT data.identification as identification,CONCAT(LAST_VALUE(id),'1619') as id,sum(abs(amount)) as amount,1,'1619' as tag,LAST_VALUE(`time`) as `time`,'mega_20250409',LAST_VALUE(`type`) as type,1 as action,LAST_VALUE(periodKey) as periodKey,'bean' FROM (select *,FROM_UNIXTIME(`time` / 1000, 'yyyyMMdd') as periodKey from kafka_source where type LIKE 'operation:pay:game:decrease' and data.item['id'] = '1004' and `time` BETWEEN 1744156800000 and 1746057599999) GROUP BY data.identification,TUMBLE(`ts`, INTERVAL '1' DAY)\"]",
+      "pipeline.name": "mega_20250409_task"
+    }
+  }
+}

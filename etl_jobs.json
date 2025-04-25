@@ -1,0 +1,22 @@
+{
+  "9244ff4ce81496448ff090c0eb1c2f14-dramatalk_ta_analysis_job": {
+    "etl": "用户数据源/order充值（同步t_user和t_order表） ta_analysis_job |xxx-ta-userAndOrder-test-0831065248.jar",
+    "savepoint": "s3://xxx/flink/savepoint-9244ff-905105bb0344"
+  },
+  "1c5333f413974734382f732cc6eadf22-xxxetl_marketing_job": {
+    "etl": "账户数据源 xxxetl_marketing_job |xxx-etl-marketing-flink-1.0-operation-test-20230802-SNAPSHOT.jar",
+    "savepoint": "s3://xxx/flink/savepoint-1c5333-4bd3d34fbf3b"
+  },
+  "c91afc64e11d12affae583f8cc3108b9-ta_user_behavior_job": {
+    "etl": "用户数据源（同步user_extend表） ta_user_behavior_job |xxx-ta-user_behavior-1.0-SNAPSHOT-test-0831055902.jar",
+    "savepoint": "s3://xxx/flink/savepoint-c91afc-3d13c292436a"
+  },
+  "fa0e62572e16a20e504a70f0f5552d5e-ta_game_job_1": {
+    "etl": "game数据源 ta_game_job |xxx-ta-Game-1.0-SNAPSHOT-test-1030062624.jar",
+    "savepoint": "s3://xxx/flink/savepoint-fa0e62-00fc5bf9b57c"
+  },
+  "564f1cb69b6e900624f099312d0199ed-dramatalk_ta_user_behavior_job": {
+    "etl": "用户数据源（同步user_extend表） ta_user_behavior_job |xxx-ta-user_behavior-1.0-SNAPSHOT-test-0831055902.jar",
+    "savepoint": "s3://xxx/flink/savepoint-564f1c-6fd80c0f0d21"
+  }
+}

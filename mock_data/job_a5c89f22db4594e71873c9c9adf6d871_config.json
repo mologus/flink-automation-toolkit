@@ -1,0 +1,17 @@
+{
+    "jid": "a5c89f22db4594e71873c9c9adf6d871",
+    "name": "log_processor_job",
+    "execution-config": {
+        "execution-mode": "PIPELINED",
+        "restart-strategy": "Restart with fixed delay (30000 ms). #10 restart attempts.",
+        "job-parallelism": 3,
+        "object-reuse-mode": false,
+        "user-config": {
+            "log4j.configuration": "file:/flink/conf/log4j-console.properties",
+            "stream.checkpoint.interval": "60000",
+            "pipeline.name": "log_processor_job",
+            "marketing.sql": "[\"INSERT INTO log_sink SELECT event_time, log_level, service_name, message FROM log_source WHERE log_level IN ('ERROR', 'WARN')\"]",
+            "stream.checkpoint.enable": "true"
+        }
+    }
+}

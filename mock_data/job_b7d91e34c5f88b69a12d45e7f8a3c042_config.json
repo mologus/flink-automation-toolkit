@@ -1,0 +1,17 @@
+{
+    "jid": "b7d91e34c5f88b69a12d45e7f8a3c042",
+    "name": "metric_collector",
+    "execution-config": {
+        "execution-mode": "PIPELINED",
+        "restart-strategy": "Restart with fixed delay (45000 ms). #5 restart attempts.",
+        "job-parallelism": 2,
+        "object-reuse-mode": false,
+        "user-config": {
+            "log4j.configuration": "file:/flink/conf/log4j-console.properties",
+            "stream.checkpoint.interval": "120000",
+            "pipeline.name": "metric_collector",
+            "marketing.ddl": "[\"CREATE TABLE metrics_source (`timestamp` BIGINT, `metric_name` STRING, `metric_value` DOUBLE, `host` STRING, `service` STRING, `ts` AS TO_TIMESTAMP(FROM_UNIXTIME(`timestamp` / 1000)), WATERMARK FOR `ts` AS ts - INTERVAL '10' SECOND) WITH( 'connector' = 'kafka', 'topic' = 'system_metrics', 'properties.group.id' = 'metric_collector_group', 'property-version' = 'universal', 'properties.bootstrap.servers' = 'kafka-broker1:9092', 'scan.startup.mode' = 'latest-offset', 'format' = 'json')\", \"CREATE TABLE metrics_sink (`timestamp` BIGINT, `metric_name` STRING, `avg_value` DOUBLE, `min_value` DOUBLE, `max_value` DOUBLE, `count` BIGINT, `ts` TIMESTAMP, PRIMARY KEY(metric_name, timestamp) NOT ENFORCED ) WITH( 'connector' = 'jdbc', 'url' = 'jdbc:mysql://127.0.0.1:3306/metrics_db', 'table-name' = 'aggregated_metrics', 'username' = 'db_user', 'password' = 'db_password')\"]",
+            "stream.checkpoint.enable": "true"
+        }
+    }
+}

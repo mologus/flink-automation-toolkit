@@ -1,0 +1,30 @@
+{
+  "3d1bdaab09aabde8276764a75757a288-activity_risk_control": {
+    "etl": "活动风控计算 activity_risk_control |ActivityInspect-1.0-SNAPSHOT_0410163844.jar",
+    "savepoint": "s3://xxx-flinks/flink/savepoint-3d1bda-00291c494f08"
+  },
+  "1f9d78fed1af0929183ceecc5c0c45d3-ta_game_total_job": {
+    "etl": "所有游戏数据源 ta_game_total_job |ta_game_total_job-SNAPSHOT-prod-0421075712.jar",
+    "savepoint": "s3://xxx-flinks/flink/savepoint-1f9d78-6cfcf07d9beb"
+  },
+  "66952c5ddef6ef9eda65dabd49b7bec5-xxxetl_marketing_job": {
+    "etl": "账户数据源 xxxetl_marketing_job |xxx-etl-marketing-flink-xxxETLMarketingTask-1.0-SNAPSHOT-prod-0410084144.jar",
+    "savepoint": "s3://xxx-flinks/flink/savepoint-66952c-478797ac97f4"
+  },
+  "e077db88f5d4dcf86e1cc444a420a3bf-common_etl_job": {
+    "etl": "其他数据源 common_etl_job |common_etl_job-1.0-SNAPSHOT-prod-0418075219.jar",
+    "savepoint": "s3://xxx-flinks/flink/savepoint-e077db-1d387169338c"
+  },
+  "5e02ae9444eec57201ce5d125a8099ea-mission_etl_job": {
+    "etl": "所有任务数据源 mission_etl_job |mission_etl_job-1.0-SNAPSHOT-prod-0421094435.jar",
+    "savepoint": "s3://xxx-flinks/flink/savepoint-5e02ae-307307a60746"
+  },
+  "8faf44e5b22641592019931a31c91060-talent_live_duration_gift_mq_flink": {
+    "etl": "工资单 talent_live_duration_gift_mq_flink |xxx-salary-flink-SalaryJob-1.0.0_0410103214.jar",
+    "savepoint": "s3://xxx-flinks/flink/savepoint-8faf44-b8aa830ff8ec"
+  },
+  "d07d1f72fded614945b5fe66473d9a3a-oyelite_ta_reel_operation_job": {
+    "etl": "视频操作 oyelite_ta_reel_operation_job |oyelite-reel-1.0-SNAPSHOT-prod-0410085720.jar",
+    "savepoint": "s3://xxx-flinks/flink/savepoint-d07d1f-8cd5c2aacda9"
+  }
+}

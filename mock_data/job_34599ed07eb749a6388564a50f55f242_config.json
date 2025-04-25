@@ -1,0 +1,30 @@
+{
+    "jid": "34599ed07eb749a6388564a50f55f242",
+    "name": "last_list_tag",
+    "execution-config": {
+        "execution-mode": "PIPELINED",
+        "restart-strategy": "Restart with fixed delay (60000 ms). #1440 restart attempts.",
+        "job-parallelism": 1,
+        "object-reuse-mode": false,
+        "user-config": {
+            "log4j.configuration": "file:/flink/conf/log4j-console.properties",
+            "awt.toolkit": "sun.awt.X11.XToolkit",
+            "stream.checkpoint.interval": "60000",
+            "file.encoding.pkg": "sun.io",
+            "java.specification.version": "1.8",
+            "log4j.configurationFile": "file:/flink/conf/log4j-console.properties",
+            "sun.cpu.isalist": "",
+            "pipeline.operator-chaining": "true",
+            "sun.jnu.encoding": "UTF-8",
+            "java.class.path": "/flink/lib/flink-dist_2.12-1.13.5.jar:::",
+            "java.vm.vendor": "Oracle Corporation",
+            "pipeline.name": "last_list_tag",
+            "marketing.ddl": "[\"CREATE TABLE kafka_source ( `id` STRING, `data` ROW<`amount` DECIMAL, `identification` STRING, `tag` STRING>, `ts` AS TO_TIMESTAMP(FROM_UNIXTIME(1000)), WATERMARK FOR `ts` AS ts - INTERVAL '5' SECOND) WITH( 'connector' = 'kafka', 'topic' = 'business_events', 'properties.group.id' = 'tag_group', 'property-version' = 'universal', 'properties.bootstrap.servers' = 'kafka-server:9092', 'scan.startup.mode' = 'latest-offset', 'format' = 'json')\", \"CREATE TABLE tag_sink ( `id` STRING, `amount` DECIMAL, `identification` STRING, `tag` STRING, PRIMARY KEY(id) NOT ENFORCED ) WITH( 'connector' = 'jdbc', 'url' = 'jdbc:mysql://mysql-server:3306/tagdb', 'table-name' = 'tag_records', 'username' = 'root', 'password' = 'password')\"]",
+            "marketing.sql": "[\"INSERT INTO tag_sink SELECT id, data.amount, data.identification, data.tag FROM kafka_source WHERE data.tag IS NOT NULL\"]",
+            "user.timezone": "Asia/Shanghai",
+            "stream.checkpoint.enable": "true",
+            "java.specification.name": "Java Platform API Specification",
+            "java.class.version": "52.0"
+        }
+    }
+}
